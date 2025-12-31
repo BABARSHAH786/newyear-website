@@ -1,0 +1,11 @@
+# Robots.txt for New Year Website
+# Allow all bots to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://online.techkl.de/sitemap.xml
+
+# Crawl-delay (optional - adjust based on server capacity)
+# Crawl-delay: 1
